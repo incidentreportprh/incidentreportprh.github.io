@@ -1,187 +1,190 @@
-<!doctype html>
-<html lang="en" class="font-sans">
-<head>
-  <meta charset="utf-8">
+<html>
+<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>PRH Incident Report Website</title>
   <meta name="description" content="An incident report website for P R Harshith's Websites">
   <meta name="author" content="P R HARSHITH">
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <style>
+  *, *::after, *::before {
+  box-sizing: border-box;
 
-<body>
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-<script>
-  function addDarkmodeWidget() {
-    new Darkmode().showWidget();
-  }
-  const options = {
-  bottom: '64px', // default: '32px'
-  right: 'unset', // default: '32px'
-  left: '32px', // default: 'unset'
-  time: '0.5s', // default: '0.3s'
-  mixColor: '#fff', // default: '#fff'
-  backgroundColor: '#fff',  // default: '#fff'
-  buttonColorDark: '#100f2c',  // default: '#100f2c'
-  buttonColorLight: '#fff', // default: '#fff'
-  saveInCookies: true, // default: true,
-  label: '🌓', // default: ''
-  autoMatchOsTheme: true // default: true
+ margin: 0;
+  padding: 0;
 }
 
-const darkmode = new Darkmode(options);
-darkmode.showWidget();
-</script>
-<style>
+p {
+  line-height: 1.8;
+  font-size: 1.1em;
+}
 
-.darkmode--activated p, .darkmode--activated li, .darkmode--activated time {
-  color: #fff !important;
+time {
+  line-height: 1.6;
+}
+
+body {
+
+  font-family: "Poppins", sans-serif;
+
+  background-color: #404040;
+  
+  color: #1a1a1a;
+}
+
+/* ===================== */
+/* ===================== */
+
+/* Timeline */
+/* Code Here ↓ */
+
+.timeline {
+  padding: 3rem 2rem;
+  
+  max-width: 460px;
+  border-radius: 12px;
+  
+  background-color: white;
+  box-shadow: 0 4px 25px -20px rgba(0,0,0.2);
+}
+
+.tl-content .tl-header, 
+.tl-content .tl-body {
+  padding-left: 25.6px;
+  
+  border-left: 3px solid gainsboro;
+}
+
+.tl-body {
+  padding-bottom:1rem;
+}
+
+.tl-content:last-child .tl-body {
+  border-left: 3px solid transparent;
+}
+
+.tl-header {
+  position: relative;
+  display: grid;
+  
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.tl-title {
+  font-weight: 800;
+  font-size: 1.5em;
+  
+  border-bottom: 1px solid gainsboro;
+}
+
+.tl-time {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: darkorange;
+}
+
+.tl-marker {
+  display:block;
+  position: absolute;
+
+  width: 16px;
+  height: 16px;
+  border-radius: 50% / 50%;
+  
+  background: gainsboro;
+  
+  left: -1.1rem;
+  top: 50%;
+  
+  transform: translate(50%,-50%);
+}
+
+.tl-content-active .tl-marker {
+  padding: 1.6px;
+  
+  left: -1.25rem;
+  
+  width: 18px;
+  height: 18px;
+  
+  border: 2px solid limegreen;
+  
+  background-color: limegreen;
+  background-clip: content-box;
+  
+  box-shadow: 0 0 15px -2px limegreen;
+}
+
+.tl-content-active .tl-title {
+  font-weight: 700;
+  
+  color: green;
 }
 
 
-</style>
+  </style>
+  
 
-
-  <section class="w-full max-w-5xl px-2 py-6 md:py-12 mx-auto text-center">
-    <h1 class="text-3xl font-bold">
-      Reported Incidents:
-    </h1>
-
-    <h3>
-      Find all Downtime, Maintenance and Bug Reports Here.
-    </h3>
-  </section>
-
-  <section class="px-2 py-12 md:mt-12 bg-gradient-to-b from-gray-50 to-white">
-    <ul class="relative w-full max-w-5xl mx-auto">
-      <span class="absolute bottom-0 left-0 hidden w-1 rounded bg-gray-200/60 top-3 translate-x-2 md:block" aria-hidden="true"></span>
-
-      <li class="flex flex-col items-start md:flex-row">
-        <h3 class="flex items-center w-full mb-3 space-x-3 md:w-1/3">
-          <span class="z-10 hidden block w-5 h-5 bg- border-4 border-gray-300 rounded-full md:block"></span>
-
-          <time datetime="2023-10-30" class="text-xl font-semibold tracking-tight text-gray-800">30 October 2023 <br> 1:30 AM IST</time>
-        </h3>
-
-        <div class="w-full space-y-2 md:w-2/3">
-          <p>
-            <span class="inline-block px-2 py-1 text-base font-black leading-none text-green-700 rounded-full bg-gradient-to-br from-green-200 to-green-100">
-              Operational
-            </span>
-          </p>
-
-          <p class="text-gray-900 text-lg">
-         <b> Resolved </b> - The issue has been resolved.
-          </p>
-
-  <br>
-
-          <p class="text-gray-900 text-lg">
-          <b> Fix Implemented </b> - Cloudflare has identified the issue and have implemented a fix.
-          </p>
-
-          <p>
-            <span class="inline-block px-2 py-1 mt-5 text-base font-medium leading-none text-red-700 rounded-full bg-gradient-to-br from-red-200 to-red-100">
-              Issue
-            </span>
-          </p>
-
-          <p class="text-gray-900 text-lg">
-           <b> Incident </b> - Cloudflare Pages hosting service returning "HTTP Error 500" due to problem on Cloudflare's end due to which majority of the sites were down for 24 minutes.
-          </p>
-        </div>
-      </li>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-<!-- for future
-      <li class="flex flex-col items-start mt-20 md:flex-row">
-        <h3 class="flex items-center w-full mb-3 space-x-3 md:w-1/3">
-          <span class="z-10 hidden block w-5 h-5 bg-white border-4 border-gray-300 rounded-full md:block"></span>
-
-          <time datetime="2023-02-17" class="text-xl font-semibold tracking-tight text-gray-800">17 February 2023</time>
-        </h3>
-
-        <div class="w-full space-y-2 md:w-2/3">
-          <p>
-            <span class="inline-block px-2 py-1 text-sm font-medium leading-none text-green-700 rounded-full bg-gradient-to-br from-green-200 to-green-100">
-              New
-            </span>
-          </p>
-
-          <p class="text-gray-700">
-            Introduced a new onboarding flow for first-time users
-          </p>
-
-          <p>
-            <span class="inline-block px-2 py-1 mt-5 text-sm font-medium leading-none text-red-700 rounded-full bg-gradient-to-br from-red-200 to-red-100">
-              Bugfix
-            </span>
-          </p>
-
-          <p class="text-gray-700">
-            Addressed an issue where user preferences were not being saved properly
-          </p>
-
-          <p>
-            <span class="inline-block px-2 py-1 mt-5 text-sm font-medium leading-none text-indigo-700 rounded-full bg-gradient-to-br from-indigo-200 to-indigo-100">
-              Improvement
-            </span>
-          </p>
-
-          <p class="text-gray-700">
-            Streamlined the checkout process to reduce the number of steps required
-          </p>
-        </div>
-      </li>
-
-      <li class="flex flex-col items-start mt-20 md:flex-row">
-        <h3 class="flex items-center w-full mb-3 space-x-3 md:w-1/3">
-          <span class="z-10 hidden block w-5 h-5 bg-white border-4 border-gray-300 rounded-full md:block"></span>
-
-          <time datetime="2023-01-24" class="text-xl font-semibold tracking-tight text-gray-800">24 January 2023</time>
-        </h3>
-
-        <div class="w-full space-y-2 md:w-2/3">
-          <p>
-            <span class="inline-block px-2 py-1 text-sm font-medium leading-none text-green-700 rounded-full bg-gradient-to-br from-green-200 to-green-100">
-              New
-            </span>
-          </p>
-
-          <p class="text-gray-700">
-            Implemented a new dashboard design for better data visualization
-          </p>
-
-          <p>
-            <span class="inline-block px-2 py-1 mt-5 text-sm font-medium leading-none text-red-700 rounded-full bg-gradient-to-br from-red-200 to-red-100">
-              Bugfix
-            </span>
-          </p>
-
-          <p class="text-gray-700">
-            Addressed an issue where user preferences were not being saved properly
-          </p>
-
-          <p>
-            <span class="inline-block px-2 py-1 mt-5 text-sm font-medium leading-none text-indigo-700 rounded-full bg-gradient-to-br from-indigo-200 to-indigo-100">
-              Improvement
-            </span>
-          </p>
-
-          <p class="text-gray-700">
-            Increased the amount of available storage space for user files
-          </p>
-        </div>
-      </li> -->
-    </ul>
-  </section>
-</body>
+  <center>
+  <h1 style="color:white;">Reported Incidents:</h1>
+  <p style="color:white;">Find all Downtime, Maintenance and Bug Reports Here.</p>
+  
+  
+  <br><br>
+  <div class="timeline">  
+    <div class="tl-content tl-content-active">
+      <div class="tl-header">
+        <span class="tl-marker"></span>
+        <p class="tl-title">
+         Scheduled Maintenance
+        <p>
+        <time class="tl-time" datetime="2023-06-20">
+          06 December 2023 -- 11:30 AM To 3:00PM IST (Estimated)
+        </time>
+      </div>
+      <div class="tl-body">
+        <p>
+          <a href="https://prharshith.pages.dev"><b><i>P R Harshith's Portfolio Website</b></i></a> will be unavailable for the time period mentioned above
+          due to website maintenance. Please use <a href="https://prharshith.github.io"><b><i>the backup website</b></i></a> if needed.
+        </p>
+      </div>
+    </div>
+    
+    <!--
+    <div class="tl-content">
+      <div class="tl-header">
+        <span class="tl-marker"></span>
+        <p class="tl-title">
+          In egestas tempus ipsum
+        <p>
+        <time class="tl-time" datetime="2023-06-18">
+          June 18, 2023
+        </time>
+      </div>
+      <div class="tl-body">
+        <p>
+          Aliquam id ex dui, ante eget elementum 
+          semper, ac posuere quam nisl euismod nunc.
+        </p>
+      </div>
+    </div>
+    <div class="tl-content">
+      <div class="tl-header">
+        <span class="tl-marker"></span>
+        <p class="tl-title">
+          Nulla mollis lorem nec
+        <p>
+        <time class="tl-time" datetime="2023-06-14">
+          June 14, 2023
+        </time>
+      </div>
+      <div class="tl-body">
+        <p>
+          Cras eleifend leo lacus, et semper erat 
+          aliquet at. Aliquam nisi risus, dapibus non 
+          ex in, imperdiet ultrices lorem.
+        </p>
+      </div>
+    </div>-->
+  </div>
+  </center>
 </html>
